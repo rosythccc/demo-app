@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: singpass-node-deploy
+    env: node
+    plan: free
+    region: singapore
+    branch: main
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: SINGPASS_CLIENT_ID
+        value: STG2-MOCK-CLIENT-ID
+      - key: SINGPASS_CLIENT_SECRET
+        value: STG2-MOCK-CLIENT-SECRET
+      - key: SINGPASS_REDIRECT_URI
+        value: https://singpass-node-deploy.onrender.com/callback
